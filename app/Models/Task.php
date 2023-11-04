@@ -9,25 +9,24 @@ class Task extends Model
 {
     use HasFactory;
 
-        //fillable attributes
-        protected $fillable = ['title', 'description', 'status', 'user_id', 'admin_id'];
+    protected $guarded  = [];
 
-        //relationship with users
-        public function user()
-        {
-            return $this->belongsTo(User::class);
-        }
+    //relationship with users
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
-        //relationship with tags
-        public function tags()
-        {
-            return $this->belongsToMany(Tag::class);
-        }
+    //relationship with tags
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 
-        //relationship with statuses
-        public function status()
-        {
-            return $this->belongsTo(Status::class);
-        }
+    //relationship with statuses
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 
 }
