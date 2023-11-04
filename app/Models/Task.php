@@ -9,12 +9,20 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $guarded  = [];
+    protected $guarded = [];
 
     //relationship with users
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)
+            ->where('is_admin', 0);
+    }
+
+    //relationship with admins
+    public function admins()
+    {
+        return $this->belongsTo(User::class)
+            ->where('is_admin', 1);
     }
 
     //relationship with tags
@@ -28,5 +36,4 @@ class Task extends Model
     {
         return $this->belongsTo(Status::class);
     }
-
 }

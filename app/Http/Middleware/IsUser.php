@@ -21,8 +21,11 @@ class IsUser
             }
 
             if (auth()->user()->is_admin) {
+
                 return redirect('/admin');
             }
+        } elseif (! auth()->check()) {
+            return $next($request);
         }
 
         return abort(403);

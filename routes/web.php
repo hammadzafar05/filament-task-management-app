@@ -13,7 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    if (auth()->check()) {
+        if (auth()->user()->is_admin) {
+            return redirect('admin');
+        } else {
+            return redirect('dashboard');
+        }
+    }
+    else
+    {
+        return redirect('login');
+    }
+});
 
 Route::middleware(['auth', 'is.user'])->group(function () {
 

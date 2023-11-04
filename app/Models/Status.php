@@ -9,6 +9,8 @@ class Status extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     //Relationship with tasks
     public function tasks()
     {

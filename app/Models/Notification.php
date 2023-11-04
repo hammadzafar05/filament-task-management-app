@@ -9,9 +9,11 @@ class Notification extends Model
 {
     use HasFactory;
 
-     //Relationship with users
-     public function user()
-     {
-         return $this->belongsTo(User::class, 'notifiable_id');
-     }
+    protected $guarded = [];
+
+    //Relationship with users
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'notifiable_id');
+    }
 }
