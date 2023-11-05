@@ -17,10 +17,13 @@ class AdminResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
+    protected static ?int $navigationSort = 1;
+
     protected static ?string $modelLabel = 'Admin';
 
     public static function form(Form $form): Form
     {
+
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
@@ -29,13 +32,8 @@ class AdminResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
+                    ->unique()
                     ->maxLength(255),
-                // Forms\Components\DateTimePicker::make('email_verified_at'),
-                Forms\Components\Toggle::make('is_admin')
-                    ->default(1)
-                    ->disabled()
-                    ->dehydrated()
-                    ->hiddenOn('edit'),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
@@ -62,7 +60,7 @@ class AdminResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->query(
-                User::query()->where('is_admin', 1)
+                User::query()->where('is_admin', 1)->where('email', '!=', 'admin@dev.tribes.work')
             )
             ->filters([
                 //
@@ -89,10 +87,19 @@ class AdminResource extends Resource
 
     public static function getPages(): array
     {
+
         return [
             'index' => Pages\ListAdmins::route('/'),
             'create' => Pages\CreateAdmin::route('/create'),
             'edit' => Pages\EditAdmin::route('/{record}/edit'),
         ];
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        $user = User::find(auth()->user()->id);
+        $allowed = $user->canCreateAdmins();
+
+        return $allowed;
     }
 }

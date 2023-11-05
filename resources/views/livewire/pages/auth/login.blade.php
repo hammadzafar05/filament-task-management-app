@@ -22,6 +22,11 @@ new #[Layout('layouts.guest')] class extends Component {
 
         $this->redirect(session('url.intended', RouteServiceProvider::HOME), navigate: true);
     }
+
+    public function loginAsAdmin()
+    {
+        $this->redirect('/admin');
+    }
 }; ?>
 
 <div>
@@ -64,9 +69,14 @@ new #[Layout('layouts.guest')] class extends Component {
                 </a>
             @endif
 
-            <x-primary-button class="ml-3">
+            <a href='register' wire:navigate>
+                <x-primary-button class="ml-3">
+                    {{ __('Register') }}
+                </x-primary-button>
+            </a>
+            <x-secondary-button wire:click='loginAsAdmin' class="ml-3">
                 {{ __('Log in as Admin') }}
-            </x-primary-button>
+            </x-secondary-button>
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>

@@ -56,4 +56,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Task::class);
     }
+
+    public function canCreateAdmins(): bool
+    {
+        return auth()->user()->email == 'admin@dev.tribes.work' ? true : false;
+    }
 }
