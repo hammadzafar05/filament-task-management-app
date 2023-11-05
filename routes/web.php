@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Task;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,7 @@ Route::get('/', function () {
         } else {
             return redirect('dashboard');
         }
-    }
-    else
-    {
+    } else {
         return redirect('login');
     }
 });
@@ -30,6 +29,8 @@ Route::get('/', function () {
 Route::middleware(['auth', 'is.user'])->group(function () {
 
     Route::view('dashboard', 'dashboard')->name('dashboard');
+
+    Route::get('tasks', Task::class)->name('task');
 
     Route::view('profile', 'profile')->name('profile');
 

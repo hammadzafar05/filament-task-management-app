@@ -70,9 +70,9 @@ new #[Layout('layouts.guest')] class extends Component {
             @endif
 
             <a href='register' wire:navigate>
-                <x-primary-button class="ml-3">
+                <x-secondary-button class="ml-3">
                     {{ __('Register') }}
-                </x-primary-button>
+                </x-secondary-button>
             </a>
             <x-secondary-button wire:click='loginAsAdmin' class="ml-3">
                 {{ __('Log in as Admin') }}

@@ -25,6 +25,13 @@ class Task extends Model
             ->where('is_admin', 1);
     }
 
+    //relationship with assigned By
+    public function assignedBy()
+    {
+        return $this->belongsTo(User::class, 'admin_user_id')
+            ->where('is_admin', 1);
+    }
+
     //relationship with tags
     public function tags()
     {
