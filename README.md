@@ -69,6 +69,7 @@ The project is a task management application designed to help users organize and
 3. Create, edit, and delete tasks as needed.
 4. Assign tasks to specific users and set appropriate statuses.
 5. Add relevant tags to tasks for easy categorization and tracking.
+6. For Filament Admin Panel go to '/admin' via URL Or From "Login as Admin" button on the Login Page.
 
 ## Development
 
