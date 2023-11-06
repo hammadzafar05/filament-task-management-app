@@ -5,9 +5,13 @@ The project is a task management application designed to help users organize and
 
 ## Features
 
-- Feature 1
-- Feature 2
-- ...
+- User authentication and authorization
+- Task creation, editing, and deletion
+- Task assignment to specific users
+- Setting and updating task statuses
+- Tagging tasks for easy categorization
+- User-friendly interface for efficient task management
+- Streamlined task tracking and prioritization
 
 ## Getting Started
 
@@ -21,7 +25,7 @@ The project is a task management application designed to help users organize and
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/hammadzafar05/tribes-task-management-app.git
    ```
 
 2. Navigate to the project directory:
@@ -53,7 +57,7 @@ The project is a task management application designed to help users organize and
    php artisan migrate
    ```
 
-8. Seed the database (if necessary):
+8. Seed the database:
    ```sh
    php artisan db:seed
    ```
@@ -66,24 +70,9 @@ Describe how to use the project. Provide any necessary commands or steps.
 
 ### Built With
 
-List the major frameworks or libraries used in your project.
 
-### Contributing
-
-Explain how other developers can contribute to the project.
-
-### License
-
-This project is licensed under the [Your License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
-
-### Acknowledgements
-
-- Any credits or references to resources that you used in the development of this project.
 
 ## Contact
 
-Your Name - [Your Email Address]
-Project Link: [https://github.com/your-username/your-repository](https://github.com/your-username/your-repository)
-```
-
-Make sure to replace all the placeholder content, such as `your-username`, `your-repository`, and other generic placeholders, with the actual information for your project.
+Hammad Zafar - [hammadarain05@gmail.com]
+Project Link: [https://github.com/hammadzafar05/tribes-task-management-app.git](https://github.com/hammadzafar05/tribes-task-management-app.git)
