@@ -51,8 +51,8 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            ->brandLogo(asset('storage/logo-horizontal.svg'))
-            ->brandLogoHeight('2rem')
+            // ->brandLogo(asset('storage/logo-horizontal.svg'))
+            // ->brandLogoHeight('2rem')
             ->favicon('https://campfire.tribes.work/uploads/company/favicon.svg')
             ->authMiddleware([
                 Authenticate::class,
