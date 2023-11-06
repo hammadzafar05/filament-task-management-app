@@ -10,18 +10,24 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NewTaskCreatedForUser extends Mailable
+class TaskStatusUpdated extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $taskData;
 
     /**
      * Create a new message instance.
      */
+    public $taskData;
+
+    public $statusName;
+
+    public $userName;
+
     public function __construct($taskData)
     {
         $this->taskData = $taskData;
+        $this->statusName = Status::find($taskData->status_id)->name;
+        $this->userName = User::find($taskData->user_id)->name;
     }
 
     /**
@@ -30,7 +36,7 @@ class NewTaskCreatedForUser extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Task Assigned',
+            subject: 'Task '.$this->taskData->title.' is '.$this->statusName.' Now!',
         );
     }
 
@@ -39,15 +45,8 @@ class NewTaskCreatedForUser extends Mailable
      */
     public function content(): Content
     {
-        $user = User::find($this->taskData['admin_user_id']);
-        $statusName = Status::find($this->taskData['status_id']);
-
         return new Content(
-            view: 'emails.task_assigned_notification',
-            with: [
-                'assigned_by' => $user->name,
-                'statusName' => $statusName,
-            ]
+            view: 'emails.task_status_updated',
         );
     }
 
