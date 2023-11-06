@@ -4,7 +4,7 @@
     </h2>
 </x-slot>
 
-<div class="py-12">
+<div class="py-6">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <x-action-message class="flex justify-start mb-4" on="status-updated">
             {{ __('Status Updated Successfully') }}
@@ -96,11 +96,32 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href='{{ route('task.edit', $task->id) }}' wire:navigate>
-                                                        <x-secondary-button class=''>
-                                                            Edit
-                                                        </x-secondary-button>
-                                                    </a>
+                                                    @if ($task->admin_user_id == auth()->user()->id)
+                                                        <a href='{{ route('task.edit', $task->id) }}' wire:navigate>
+                                                            <x-secondary-button>
+                                                                Edit
+                                                            </x-secondary-button>
+                                                        </a>
+                                                    @else
+                                                        <a href='#' wire:navigate>
+                                                            <x-secondary-button disabled>
+                                                                Edit
+                                                            </x-secondary-button>
+                                                        </a>
+                                                    @endif
+                                                    @if ($task->admin_user_id == auth()->user()->id)
+                                                        <button type="button"
+                                                            class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                                                            wire:click="delete({{ $task->id }})"
+                                                            wire:confirm="Are you sure you want to delete this task?">
+                                                            Delete
+                                                        </button>
+                                                    @else
+                                                        <button type="button" disabled
+                                                            class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                                            Delete
+                                                        </button>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

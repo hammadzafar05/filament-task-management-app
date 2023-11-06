@@ -40,4 +40,12 @@ class Task extends Component
 
         $this->dispatch('status-updated');
     }
+
+    public function delete($id)
+    {
+        ModelsTask::find($id)->delete();
+        session()->flash('message', 'Task deleted successfully.');
+
+        $this->redirect('/tasks', true);
+    }
 }

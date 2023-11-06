@@ -11,9 +11,21 @@ class EditTask extends Component
 {
     public Task $task;
 
+    public $title;
+
+    public $description;
+
+    public $status_id;
+
+    public $tags;
+
     public function mount(Task $task)
     {
         $this->task = $task;
+        $this->title = $task->title;
+        $this->description = $task->description;
+        $this->status_id = $task->status_id;
+        $this->tags = $task->tags->pluck('id')->all();
     }
 
     public function render()
@@ -27,17 +39,22 @@ class EditTask extends Component
 
     public function update()
     {
+
         $validatedData = $this->validate([
-            'task.title' => 'required',
-            'task.description' => 'required',
-            'task.status' => 'required',
-            'task.tags' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'status_id' => 'required',
         ]);
 
-        $this->task->update($validatedData['task']);
+        $this->task->update($validatedData);
+
+        if (count($this->tags)) {
+            $this->task->tags()->sync($this->tags);
+        }
 
         session()->flash('message', 'Task updated successfully.');
 
-        return redirect()->route('tasks.index');
+        // return redirect()->route('task');
+        $this->redirect('/tasks', true);
     }
 }
