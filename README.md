@@ -64,13 +64,21 @@ The project is a task management application designed to help users organize and
 
 ### Usage
 
-Describe how to use the project. Provide any necessary commands or steps.
+1. Navigate to the application URL in your browser.
+2. Register an account or log in if you already have one.
+3. Create, edit, and delete tasks as needed.
+4. Assign tasks to specific users and set appropriate statuses.
+5. Add relevant tags to tasks for easy categorization and tracking.
 
 ## Development
 
 ### Built With
 
-
+- Laravel
+- Livewire
+- Filament
+- Alpine
+- Tailwind
 
 ## Contact
 
