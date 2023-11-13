@@ -1,4 +1,4 @@
-# Tribes | Task Managament Web App
+# Tribes | Task Management Web App
 
 The project is a task management application designed to help users organize and track their tasks efficiently. It allows users to create, update, and delete tasks, assign them to specific users, set task statuses, and add relevant tags for easy categorization. The application provides a user-friendly interface for managing tasks, making it simple for users to keep track of their to-do lists and prioritize their work effectively. With its intuitive design and comprehensive functionality, the app aims to streamline task management and enhance productivity for individuals and teams alike.
 
