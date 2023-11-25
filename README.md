@@ -1,4 +1,4 @@
-# Tribes | Task Management Web App
+# Filament | Task Management Web App
 
 The project is a task management application designed to help users organize and track their tasks efficiently. It allows users to create, update, and delete tasks, assign them to specific users, set task statuses, and add relevant tags for easy categorization. The application provides a user-friendly interface for managing tasks, making it simple for users to keep track of their to-do lists and prioritize their work effectively. With its intuitive design and comprehensive functionality, the app aims to streamline task management and enhance productivity for individuals and teams alike.
 
@@ -25,7 +25,7 @@ The project is a task management application designed to help users organize and
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/hammadzafar05/tribes-task-management-app.git
+   git clone https://github.com/hammadzafar05/filament-task-management-app.git
    ```
 
 2. Navigate to the project directory:
@@ -84,4 +84,4 @@ The project is a task management application designed to help users organize and
 ## Contact
 
 Hammad Zafar - [hammadarain05@gmail.com]
-Project Link: [https://github.com/hammadzafar05/tribes-task-management-app.git](https://github.com/hammadzafar05/tribes-task-management-app.git)
+Project Link: [https://github.com/hammadzafar05/filament-task-management-app.git](https://github.com/hammadzafar05/filament-task-management-app.git)
