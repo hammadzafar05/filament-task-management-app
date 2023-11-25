@@ -30,7 +30,7 @@ The project is a task management application designed to help users organize and
 
 2. Navigate to the project directory:
    ```sh
-   cd your-project-directory
+   cd filament-task-management-app
    ```
 
 3. Install Node.js dependencies:
